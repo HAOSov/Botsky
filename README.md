@@ -1,0 +1,2 @@
+# Botsky
+Unfollower bot Bluesky 
