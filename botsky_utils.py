@@ -2,13 +2,13 @@ import requests
 from bs4 import BeautifulSoup
 
 # Constants for URLs
-DISCORD_WEBHOOK_URL = "YOUR_DISCORD_WEBHOOK_URL"
+DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/"
 LOG_FILE = "unfollows_log.txt"
 
 def fetch_followers():
     """Fetches the current list of followers from the Bluesky profile page."""
     # URL of the Bluesky profile (replace YOUR_PROFILE_URL with actual URL)
-    url = "YOUR_PROFILE_URL"
+    url = "https://bsky.app/profile/*.bsky.social/followers"
     try:
         response = requests.get(url)
         response.raise_for_status()
