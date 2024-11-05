@@ -1,1 +1,2 @@
-
+*.bsky.social
+[APP PASSWORD]
