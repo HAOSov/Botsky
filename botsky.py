@@ -10,3 +10,15 @@ def login_to_bluesky():
 def followers_list():
     follows = []
     try:
+        did_response = client.com.atproto.identity.resolve_handle({'handle': BLUESKY_USERNAME})
+        did = did_response['did']
+        followers_response = client.get_followers(did)
+        for i in followers_response.followers:
+            handle = i.handle
+            name = i.display_name
+            if handle not in follows:
+                follows.append([handle,name])
+                except Exception as e:
+                    print(f"Something wrong - can collect followers: {e}")
+
+return follows
