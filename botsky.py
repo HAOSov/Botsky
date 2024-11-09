@@ -22,3 +22,8 @@ def followers_list():
                     print(f"Something wrong - can collect followers: {e}")
 
 return follows
+
+def send_to_discord(message):
+    webhook = DiscordWebhook(url=DISCORD_WEBHOOK_URL, content=message)
+    response = webhook.execute()
+    return response
