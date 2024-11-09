@@ -9,3 +9,4 @@ def login_to_bluesky():
 
 def followers_list():
     follows = []
+    try:
