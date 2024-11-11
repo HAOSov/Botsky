@@ -40,3 +40,8 @@ if __name__ == '__botsky__':
     splash('Bluesky Unfollow (Hater) Notification \nVersion 0.1 by HAOSov')
     sleep(1)
 
+delay = int(input('Enter refresh delay(seconds): '))
+    sleep(2)
+    with open('acc_data.txt','r',encoding='utf-8') as f:
+        data = f.read().strip()
+        data = data.split('\n')
