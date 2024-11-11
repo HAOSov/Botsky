@@ -4,6 +4,9 @@ import traceback
 from discord_webhook import DiscordWebhook
 from reusable.string_functions import splash
 
+
+
+
 def login_to_bluesky():
     client.login(BLUESKY_USERNAME, BLUESKY_PASSWORD)
 
@@ -18,10 +21,10 @@ def followers_list():
             name = i.display_name
             if handle not in follows:
                 follows.append([handle,name])
-                except Exception as e:
-                    print(f"Something wrong - can collect followers: {e}")
+    except Exception as e:
+        print(f"Error fetching followers: {e}")
 
-return follows
+    return follows
 
 def send_to_discord(message):
     webhook = DiscordWebhook(url=DISCORD_WEBHOOK_URL, content=message)
