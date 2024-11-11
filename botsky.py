@@ -5,8 +5,6 @@ from discord_webhook import DiscordWebhook
 from reusable.string_functions import splash
 
 
-
-
 def login_to_bluesky():
     client.login(BLUESKY_USERNAME, BLUESKY_PASSWORD)
 
@@ -30,8 +28,6 @@ def send_to_discord(message):
     webhook = DiscordWebhook(url=DISCORD_WEBHOOK_URL, content=message)
     response = webhook.execute()
     return response
-
-
 
 def get_timestamp():
     return datetime.datetime.now().strftime("%Y-%m-%d  %H:%M:%S")
