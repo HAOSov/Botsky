@@ -1,6 +1,6 @@
 from atproto import Client
 from time import sleep
-import traceback
+import traceback,datetime
 from discord_webhook import DiscordWebhook
 from reusable.string_functions import splash
 
@@ -30,3 +30,13 @@ def send_to_discord(message):
     webhook = DiscordWebhook(url=DISCORD_WEBHOOK_URL, content=message)
     response = webhook.execute()
     return response
+
+
+
+def get_timestamp():
+    return datetime.datetime.now().strftime("%Y-%m-%d  %H:%M:%S")
+
+if __name__ == '__botsky__':
+    splash('Bluesky Unfollow (Hater) Notification \nVersion 0.1 by HAOSov')
+    sleep(1)
+
