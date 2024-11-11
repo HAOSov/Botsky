@@ -62,7 +62,7 @@ login_to_bluesky()
 
 while True:
         try:
-            sleep(30)
+            sleep(60)
             print('KSPD watching you...')
             current_follows = followers_list()
             unfollowed_users = []
