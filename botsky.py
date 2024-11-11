@@ -48,3 +48,9 @@ with open('webhook_url.txt','r',encoding='utf-8') as f:
     BLUESKY_USERNAME = data[0]
     BLUESKY_PASSWORD = data[1]
     DISCORD_WEBHOOK_URL = hook_url
+
+with open('action_logs.txt','r',encoding='utf-8') as f:
+        action_logs = f.read()
+
+
+    client = Client()
