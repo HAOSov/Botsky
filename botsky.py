@@ -45,3 +45,10 @@ delay = int(input('Enter refresh delay(seconds): '))
     with open('acc_data.txt','r',encoding='utf-8') as f:
         data = f.read().strip()
         data = data.split('\n')
+
+with open('webhook_url.txt','r',encoding='utf-8') as f:
+        hook_url = f.read().strip()
+
+    BLUESKY_USERNAME = data[0]
+    BLUESKY_PASSWORD = data[1]
+    DISCORD_WEBHOOK_URL = hook_url
