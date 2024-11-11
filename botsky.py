@@ -54,3 +54,25 @@ with open('action_logs.txt','r',encoding='utf-8') as f:
 
 
     client = Client()
+
+login_to_bluesky()
+    print('Hello, Sensei. I Plana and I saw your video with Kokona. Calling KSPD')
+    initial_follows = followers_list()
+    print('KSPD scan your Momotalk')
+
+while True:
+        try:
+            sleep(30)
+            print('KSPD watching you...')
+            current_follows = followers_list()
+            unfollowed_users = []
+            for init_f_ in initial_follows:
+                if init_f_ not in current_follows:
+                    unfollowed_users.append(init_f_)
+                    
+if unfollowed_users:
+                unfollowed_message = f"You are unfollowed by {len(unfollowed_users)} possibly hater:"
+                for user in unfollowed_users:
+                    unfollowed_message += f"\n -{user[1]}(@{user[0]})"
+                print(unfollowed_message)
+                send_to_discord(unfollowed_message)
