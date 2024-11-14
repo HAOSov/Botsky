@@ -76,3 +76,12 @@ if unfollowed_users:
                     unfollowed_message += f"\n -{user[1]}(@{user[0]})"
                 print(unfollowed_message)
                 send_to_discord(unfollowed_message)
+try:
+                    action_logs = f"{action_logs}\n\n{get_timestamp()}\n{unfollowed_message}"
+                    with open('action_logs.txt','w',encoding='utf-8') as f:
+                        f.write(action_logs)
+                except:
+                    traceback.print_exc()
+            initial_follows = current_follows
+        except:
+            traceback.print_exc()
