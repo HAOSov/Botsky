@@ -5,6 +5,8 @@ from discord_webhook import DiscordWebhook
 from reusable.string_functions import splash
 
 
+
+
 def login_to_bluesky():
     client.login(BLUESKY_USERNAME, BLUESKY_PASSWORD)
 
@@ -29,54 +31,58 @@ def send_to_discord(message):
     response = webhook.execute()
     return response
 
+
+
 def get_timestamp():
     return datetime.datetime.now().strftime("%Y-%m-%d  %H:%M:%S")
 
-if __name__ == '__botsky__':
-    splash('Bluesky Unfollow and status changer Notification \nVersion 0.2 by HAOSov')
+if __name__ == '__main__':
+    splash('Bluesky Unfollow and status changer Notification \nVersion 0.3 by HAOSov')
     sleep(1)
 
-delay = int(input('Enter refresh delay(seconds): '))
+    delay = int(input('Enter refresh delay(seconds): '))
     sleep(2)
     with open('acc_data.txt','r',encoding='utf-8') as f:
         data = f.read().strip()
         data = data.split('\n')
+    
 
-with open('webhook_url.txt','r',encoding='utf-8') as f:
+    with open('webhook_url.txt','r',encoding='utf-8') as f:
         hook_url = f.read().strip()
 
     BLUESKY_USERNAME = data[0]
     BLUESKY_PASSWORD = data[1]
     DISCORD_WEBHOOK_URL = hook_url
-
-with open('action_logs.txt','r',encoding='utf-8') as f:
+    
+    with open('action_logs.txt','r',encoding='utf-8') as f:
         action_logs = f.read()
 
 
     client = Client()
 
-login_to_bluesky()
+
+    login_to_bluesky()
     print('Hello, Sensei. I Plana and I saw your video with Kokona. Calling KSPD')
     initial_follows = followers_list()
     print('KSPD scan your Momotalk')
 
-while True:
+    while True:
         try:
-            sleep(60)
+            sleep(30)
             print('KSPD watching you...')
             current_follows = followers_list()
             unfollowed_users = []
             for init_f_ in initial_follows:
                 if init_f_ not in current_follows:
                     unfollowed_users.append(init_f_)
-                    
-if unfollowed_users:
-                unfollowed_message = f"Status (handle or nickname) changes on {len(unfollowed_users)} check if user unfollow:"
+            
+            if unfollowed_users:
+                unfollowed_message = f"You are unfollowed by {len(unfollowed_users)} people:"
                 for user in unfollowed_users:
                     unfollowed_message += f"\n -{user[1]}(@{user[0]})"
                 print(unfollowed_message)
                 send_to_discord(unfollowed_message)
-try:
+                try:
                     action_logs = f"{action_logs}\n\n{get_timestamp()}\n{unfollowed_message}"
                     with open('action_logs.txt','w',encoding='utf-8') as f:
                         f.write(action_logs)
