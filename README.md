@@ -8,3 +8,4 @@ atproto
 discord-webhook
 
 you need create empty action_logs.txt in bot root directory first
+pip install -r requirements.txt
