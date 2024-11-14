@@ -33,7 +33,7 @@ def get_timestamp():
     return datetime.datetime.now().strftime("%Y-%m-%d  %H:%M:%S")
 
 if __name__ == '__botsky__':
-    splash('Bluesky Unfollow (Hater) Notification \nVersion 0.1 by HAOSov')
+    splash('Bluesky Unfollow and status changer Notification \nVersion 0.2 by HAOSov')
     sleep(1)
 
 delay = int(input('Enter refresh delay(seconds): '))
@@ -71,7 +71,7 @@ while True:
                     unfollowed_users.append(init_f_)
                     
 if unfollowed_users:
-                unfollowed_message = f"Status (handle or nickname) changes on {len(unfollowed_users)} check unfollows:"
+                unfollowed_message = f"Status (handle or nickname) changes on {len(unfollowed_users)} check if user unfollow:"
                 for user in unfollowed_users:
                     unfollowed_message += f"\n -{user[1]}(@{user[0]})"
                 print(unfollowed_message)
