@@ -71,7 +71,7 @@ while True:
                     unfollowed_users.append(init_f_)
                     
 if unfollowed_users:
-                unfollowed_message = f"Status change (handle or nickname) on {len(unfollowed_users)} check unfollows:"
+                unfollowed_message = f"Status (handle or nickname) changes on {len(unfollowed_users)} check unfollows:"
                 for user in unfollowed_users:
                     unfollowed_message += f"\n -{user[1]}(@{user[0]})"
                 print(unfollowed_message)
